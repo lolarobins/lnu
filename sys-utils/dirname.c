@@ -6,22 +6,12 @@
 #include <libgen.h>
 #include <string.h>
 
-int main(int argc, char *argv[])
-{
-    int arg_offset = 0;
-
-    // accommodate leading --
-    if (argc != 1 && !strcmp(argv[1], "--"))
-        arg_offset = 1;
-
-    // no path
-    if (argc < 2 + arg_offset)
-    {
-        fprintf(stderr, "%s: no operand\n", argv[arg_offset]);
+int main(int argc, char *argv[]) {
+    int o = argc > 1 && !strcmp(argv[1], "--");
+    if (argc < 2 + o) {
+        fprintf(stderr, "%s: no operand\n", argv[o]);
         return 1;
     }
-
-    puts(dirname(argv[1 + arg_offset]));
-
+    puts(dirname(argv[++o]));
     return 0;
 }
