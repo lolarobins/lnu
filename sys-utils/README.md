@@ -3,4 +3,4 @@ package of posix standard utility commands
 
 ### completed
 - basename
-- dirnmae
+- dirname
