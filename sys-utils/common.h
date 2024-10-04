@@ -24,6 +24,7 @@ extern "C"
 #define _ERR_NO_PATH "%s: no path specified [help: -h]\n"
 #define _ERR_UNKNOWN_OPT "%s: option %c is unknown [help: -h]\n"
 #define _ERR_ARG_OPT "%s: option %c requires an argument [help: -h]\n"
+#define _ERR_TOO_MANY_OPERANDS "%s: too many operands provided [help: -h]\n"
 
 #ifdef __cplusplus
 }
