@@ -1,6 +1,6 @@
 // lola's not unix (LNU)
 // basename v1.0.0
-// Copyright (C) 2024 Lola Robins
+// Copyright (C) 2024 lolasnotunix
 
 #define _UTIL_NAME "basename"
 #define _UTIL_VERS "1.0.0"

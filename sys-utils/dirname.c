@@ -1,6 +1,6 @@
 // lola's not unix (LNU)
 // dirname v1.0.0
-// Copyright (C) 2024 Lola Robins
+// Copyright (C) 2024 lolasnotunix
 
 #define _UTIL_NAME "dirname"
 #define _UTIL_VERS "1.0.0"
