@@ -30,9 +30,9 @@ int main(int argc, char *argv[])
         {
         // help flag
         case 'h':
-            printf("%s [opts] <path>\n"
+            printf("%s [-hvz] [path]\n"
                 "get the directory containing the specified path."
-                "  -h  help/usage\n  -v  version info\n"
+                "  -h  print help/usage\n  -v  print version info\n"
                 "  -z  omit newline from end\n", argv[0]);
             return 0;
 

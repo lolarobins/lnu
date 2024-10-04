@@ -1,3 +1,7 @@
+// lola's not unix (LNU)
+// shared header for utils
+// Copyright (C) 2024 lolasnotunix
+
 #ifndef __LNU_SYS_UTILS_COMMON
 #define __LNU_SYS_UTILS_COMMON
 

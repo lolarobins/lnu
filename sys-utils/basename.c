@@ -56,10 +56,10 @@ int main(int argc, char *argv[])
         {
         // help flag
         case 'h':
-            printf("%s [opts] <path> [suffix]\n"
+            printf("%s [-hvz] [path] [suffix]\n"
                 "get the base name for a file with a given path, removing "
                 "the provided suffix if present.\n"
-                "  -h  help/usage\n  -v  version info\n"
+                "  -h  print help/usage\n  -v  print version info\n"
                 "  -z  omit newline from end\n", argv[0]);
             return 0;
 
