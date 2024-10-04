@@ -2,9 +2,14 @@
 // basename v1.0.0
 // Copyright (C) 2024 Lola Robins
 
+#define _UTIL_NAME "basename"
+#define _UTIL_VERS "1.0.0"
+#include "common.h"
+
 #include <stdio.h>
 #include <libgen.h>
 #include <string.h>
+#include <unistd.h>
 
 char *_basename(char *name, const char *suffix)
 {
@@ -33,30 +38,55 @@ char *_basename(char *name, const char *suffix)
 
 int main(int argc, char *argv[])
 {
-    char *input = argv[1];
-    char *suffix = NULL;
-    int arg_offset = 0;
-
-    // accommodate leading --
-    if (argc != 1 && !strcmp(argv[1], "--"))    
+    // no args
+    if (argc < 2)
     {
-        input = argv[2];
-        arg_offset = 1;
-    }
-
-    // no path
-    if (argc < 2 + arg_offset)
-    {
-        fprintf(stderr, "%s: no operand\n", argv[0 + arg_offset]);
+        fprintf(stderr, _ERR_NO_OPERAND, argv[0]);
         return 1;
     }
 
-    // check suffix
-    if (argc == 3 + arg_offset)
-        suffix = argv[2 + arg_offset];
+    // end char (NL if not zero flag not provided)
+    char end = '\n';
 
-    // result
-    puts(_basename(input, suffix));
+    // parse flags
+    char c;
+    while ((c = getopt(argc, argv, "hvz")) != -1)
+    {
+        switch (c)
+        {
+        // help flag
+        case 'h':
+            printf("%s [opts] <path> [suffix]\n"
+                "get the base name for a file with a given path, removing "
+                "the provided suffix if present.\n"
+                "  -h  help/usage\n  -v  version info\n"
+                "  -z  omit newline from end\n", argv[0]);
+            return 0;
+
+        // version flag
+        case 'v':
+            printf(_VERSION_INFO);
+            return 0;
+
+        // zero (instead of NL at end)
+        case 'z':
+            end = 0;
+            break;
+
+        default:
+            fprintf(stderr, _ERR_UNKNOWN_OPT, argv[0], optopt);
+            return 1;
+        }
+    }
+    
+    if (optind >= argc)
+    {
+        fprintf(stderr, _ERR_NO_PATH, argv[0]);
+        return 1;
+    }
+
+    printf("%s%c", _basename(argv[optind], 
+        (optind + 1) >= argc ? NULL: argv[optind +1]), end);
 
     return 0;
 }
