@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         switch (c)
         {
         case 'h':
-            printf("%s [-hv] [path] [suffix]\n"
+            printf("%s [-hv]\n"
                 "get the path of the active tty.\n"
                 "  -h  print help/usage\n  -v  print version info\n", argv[0]);
             return 0;
