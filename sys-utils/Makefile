@@ -1,3 +1,6 @@
+# lola's not unix (LNU)
+# Copyright (C) 2024 lolasnotunix
+
 CC:=gcc
 OUTPUT_DIR:=./bin/
 CFLAGS:=-g -Wall -O2
