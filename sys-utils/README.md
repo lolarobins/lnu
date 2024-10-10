@@ -5,3 +5,4 @@ package of posix standard utility commands
 - basename
 - dirname
 - tty
+- uname
